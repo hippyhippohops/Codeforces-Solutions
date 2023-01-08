@@ -1,0 +1,265 @@
+#4A
+
+def main():
+    weight_of_watermelon = int(input())
+    if weight_of_watermelon % 2 == 0 and weight_of_watermelon != 2:
+        print("YES")
+    else:
+        print("NO")
+ 
+main()
+
+#71A
+
+def main():
+    number_of_words = int(input())
+    array_of_words = []
+    short_form = []
+    for i in range(number_of_words):
+        array_of_words.append(str(input()))
+    for i in array_of_words:
+        if len(i) > 10:
+            short_form.append(str(i[0])+str(len(i)-2)+str(i[-1]))
+        else:
+            short_form.append(i)
+    for i in short_form:
+            print(i)
+ 
+main()
+
+#231A
+
+def main():
+    number_of_questions = int(input())
+    array_of_questions = []
+    counter = 0
+    for i in range(number_of_questions):
+        array_of_questions.append(list(input()))
+    for i in array_of_questions:
+        #print(i)
+        count_no_of_ones=0
+        for j in i:
+            #print("J is " + str(j))
+            #print(type(j))
+            if j == str(1):
+                count_no_of_ones = count_no_of_ones + 1
+        if count_no_of_ones > 1:
+            counter = counter + 1
+    print(counter)
+ 
+main()
+
+#1A
+
+Copy
+import math
+ 
+def main():
+    n,m,a=map(int,input().split())
+    #print(dimensions)
+    #print(dimensions[1])
+    #while (' ' in dimensions):
+        #dimensions.remove(' ')
+    #print(dimensions)
+    print(math.ceil(n/a)*math.ceil(m/a))
+ 
+main()
+
+#158A
+
+import math
+ 
+def main():
+    n,k=map(int,input().split())
+    scores = list(map(int,input().split()))
+    #print(scores)
+    top_k_scores = scores[0:k]
+    #print(top_k_scores)
+    bottom = scores[k:]
+    #print(bottom)
+    for i in bottom:
+        if int(i) == int(top_k_scores[-1]):
+            top_k_scores.append(i)
+    #print(top_k_scores)
+    #To remove 0
+    temp_array=[]
+    for j in top_k_scores:
+        if int(j)!=0:
+            #print("yes")
+            temp_array.append(j)
+    #print(temp_array)
+    print(len(temp_array))
+ 
+main()
+
+#50A
+
+import math
+ 
+def main():
+    m,n=map(int,input().split())
+    if int(n) % 2 == int(0):
+        print(int((n/2)*m))
+    else:
+        a_1 = ((n-1)/2)*m
+        if int(m) % 2 == int(0):
+            a_2 = m/2
+            print(int(a_1+a_2))
+        else:
+            a_2 = (m-1) / 2
+            print(int(a_1 + a_2))
+ 
+main()
+
+#282A
+
+def main():
+    n = int(input())
+    array = []
+    for i in range(n):
+        array.append(str(input()))
+    x = 0
+    for j in array:
+        if str("+") in j:
+            x=x+1
+        else:
+            x=x-1
+    print(x)
+ 
+main()
+
+#263A
+
+def main():
+    matrix = []
+    for i in range(5):
+        matrix.append(input().split())
+    #print(matrix)
+    for i in matrix:
+        if '1' in i:
+            #print(matrix.index(i))
+            row_of_array = matrix.index(i) + 1
+            #print(i.index('1'))
+            column_of_array = i.index('1') + 1
+    #print((row_of_array,column_of_array))
+    print(abs(3 - row_of_array) + abs(3 - column_of_array))
+    """    
+    matrix = numpy.asmatrix(matrix)
+    #print(matrix)
+    #print(numpy.shape(matrix))
+    result = numpy.where(matrix == str(1))
+    #print(result)
+    listOfCoordinates = list(zip(result[0]+1, result[1]+1))
+    #print(listOfCoordinates)
+    for i in listOfCoordinates:
+        #print(i)
+        row_coordinate = i[0]
+        column_coordinate = i[1]
+    #print(abs(3-row_coordinate)+abs(3-column_coordinate))"""
+ 
+ 
+main()
+
+#112A
+
+def main():
+    string_1 = input().upper()
+    string_2 = input().upper()
+    # At first i had runtime error. there is no need to compare element by elemeny. just compare the strings directly.
+    # This error was due to me not knowing that the strings can be directly compared as str_1 vs str_2. no need to compare
+    # alphabet by alphabet
+    """
+    length_of_string = len(string_1)
+    for i in range(0,length_of_string):
+        if string_1[i] > string_2[i]:
+            print("1")
+        if string_1[i] < string_2[i]:
+            print("-1")
+        if i == length_of_string-1 and string_1[i] == string_2[i]:
+            print("0")
+    """
+    if string_1 == string_2:
+        print("0")
+    if string_1 < string_2:
+        print("-1")
+    if string_1 > string_2:
+        print("1")
+ 
+ 
+main()
+
+#339A
+
+def main():
+    sum = list(input())
+    #print(sum)
+    #print(type(sum))
+    array = []
+    for i in sum:
+        if i != '+' and i != ',' and i != '[' and i != ']':
+            array.append(i)
+    array = sorted(array)
+    #print(array)
+    #print(array)
+    string = ''
+    counter = 0
+    for i in array:
+        counter += 1
+        string = string + i
+        if len(array) != counter:
+            string = string + '+'
+    print(string)
+ 
+main()
+
+#281A
+
+def main():
+    word = list(input())
+    #print(word)
+    #print(type(word))
+    word_to_captilaise = word[0]
+    #print(word_to_captilaise)
+    word[0] = word_to_captilaise.upper()
+    #print(word)
+    string = ''
+    for i in word:
+        string = string + i
+    print(string)
+ 
+main()
+
+#118A
+
+def main():
+    string = list(input().lower())
+    res = list(map(lambda i: i, string))
+    #print(res)
+    #print(type(res))
+    #Do not iterate over array. removing elements in array deals with the indices. so iterating over list will skip an element
+    #Go recap string vs array
+    array = ""
+    for i in res:
+        if i == str("a") or i == str("e") or i == str("i") or i == str("o") or i == str("u") or i ==str("y"):
+            pass
+        else:
+            array = array + "."
+            array = array + i
+    print(array)
+ 
+main()
+
+#236A
+
+def main():
+    word = list(input())
+    #This is the most popular way by which the duplicated are removed from the list.
+    # But the main and notable drawback of this approach is that the ordering of the element is lost in this particular method.
+    #However, order is not important in this question
+    word_without_repeats = list(set(word))
+    if len(word_without_repeats) % 2 == 0:
+        print("CHAT WITH HER!" )
+    else:
+        print("IGNORE HIM!")
+ 
+main()
